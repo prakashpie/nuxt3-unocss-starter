@@ -1,0 +1,682 @@
+// ==========  Container  ========== //
+$cdnURL: '';
+
+$gutters: (
+  1: 16,
+  2: 24,
+  3: 32,
+  4: 48,
+);
+$gutter-default: 24px;
+$grid-desktop-columns: 12 !default;
+
+// ==========  Base  ========== //
+$base: (
+  'base': (
+    values: (
+      'body-font': "'Basier Circle', sans-serif",
+      'heading-font': "'Basier Circle', sans-serif",
+      'monospace-font': 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      'font-size': 15px,
+      'paragraph-margin-top': 0,
+      'paragraph-margin-bottom': 1rem,
+      'heading-margin-top': 0,
+      'heading-margin-bottom': 1rem,
+      'font-weight': 400,
+      'line-height': 1.25,
+    ),
+  ),
+  'color': (
+    values: (
+      'light-yellow': #FFFAEA,
+      'light-blue': #EBEBF3,
+      'light-green': #D7FDEA,
+      'purple': #A67AD7,
+      'red': #FE4850,
+      'green': #106338,
+      'blue': #2F1160,
+      'yellow': #F9C921,
+      'grey': #333,
+    ),
+  ),
+  'theme': (
+    values: (
+      'text-primary': #fff,
+      'text-secondary': rgba(255, 255, 255, 0.6),
+      'surface': #170C29,
+      'background': #170C29,
+    ),
+  ),
+  'breakpoint': (
+    values: (
+      'xs': 0,
+      'sm': 640px,
+      'md': 960px,
+    ),
+  ),
+  'gutter': (
+    values: (
+      1: 16,
+      2: 24,
+      3: 32,
+      4: 48,
+    ),
+  ),
+);
+
+// ==========  Components  ========== //
+$components: (
+  'button': (
+    values: (
+      'background': transparent,
+      'background-hover': var(--color-green),
+      'color': var(--theme-text-green),
+      'icon-size': 18px,
+    ),
+    variants: (
+      'green',
+    ),
+  ),
+  'icon-button': (
+    variants: (
+      'accent',
+    ),
+    values: (
+      color: var(--color-primary-contrast),
+      background: var(--color-primary),
+    ),
+  ),
+);
+
+// ==========  Config  ========== //
+
+$padding-map: (
+  0: 0,
+  4: 4px,
+  6: 6px,
+  8: 0.5rem,
+  10: 10px,
+  12: 0.75rem,
+  14: 14px,
+  16: 1rem,
+  20: 20px,
+  22: 22px,
+  24: 1.5rem,
+  26: 26px,
+  32: 2rem,
+  40: 2.5rem,
+  50: 50px,
+  56: 56px,
+  64: 64px,
+  72: 72px,
+  96: 96px,
+  160: 162px,
+  162: 162px,
+);
+
+$margin-map: (-24: -24px, auto: 0 auto, 0: 0, 4: 4px, 8: 0.5rem, 10: 10px, 12: 0.75rem, 16: 1rem, 20: 20px, 24: 1.5rem, 32: 2rem, 40: 2.5rem, 48: 48px, 50: 50px, 56: 56px, 64: 64px, 72: 72px, 96: 96px, 162: 162px);
+
+$utilities: (
+  'align-content': (
+    responsive: true,
+    class: align-content,
+    values: (
+      'center': center,
+      'start': flex-start,
+      'end': flex-end,
+      'between': space-between,
+      'around': space-around,
+    ),
+  ),
+  'align-items': (
+    responsive: true,
+    class: align-items,
+    values: (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+    ),
+  ),
+  'appearance': (
+    responsive: false,
+    class: appearance,
+    values: (
+      'none': none,
+    ),
+  ),
+  'align-self': (
+    responsive: true,
+    class: align-self,
+    values: (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+    ),
+  ),
+  'background-color': (
+    responsive: false,
+    class: bg,
+    states: (
+      'hover',
+    ),
+    values: (
+      'light-yellow': var(--color-light-yellow),
+      'purple': var(--color-light-purple),
+      'light-blue': var(--color-light-blue),
+      'light-green': var(--color-light-green),
+      'red': var(--color-red),
+      'green': var(--color-green),
+      'blue': var(--color-blue),
+      'yellow': var(--color-yellow),
+      'grey': var(--color-grey),
+      'theme-background': var(--theme-background),
+      'theme-text-primary': var(--theme-text-primary),
+      'theme-text-secondary': var(--theme-text-secondary),
+      'theme-surface': var(--theme-surface),
+    ),
+  ),
+  'background-image': (
+    responsive: false,
+    class: gradiant,
+    states: (
+      'hover',
+    ),
+    values: (
+      'green': linear-gradient(180deg, #01c981 0%, #009c4d 100%),
+    ),
+  ),
+  'border': (
+    responsive: true,
+    class: border,
+    values: (
+      'none': none,
+      'half': 0.5px,
+      '1': 1px,
+      '2': 2px,
+      'transparent': transparent,
+    ),
+  ),
+  'border-top-width': (
+    responsive: false,
+    class: border-t,
+    values: (
+      'none': 0,
+      '1': 1px,
+    ),
+  ),
+  'border-right-width': (
+    responsive: false,
+    class: border-r,
+    values: (
+      'none': 0,
+      '1': 1px,
+    ),
+  ),
+  'border-bottom-width': (
+    responsive: true,
+    class: border-b,
+    values: (
+      'none': 0,
+      '1': 1px,
+      '2': 2px,
+    ),
+  ),
+  'border-left-width': (
+    responsive: false,
+    class: border-l,
+    values: (
+      'none': 0,
+      '1': 1px,
+      '2': 2px,
+    ),
+  ),
+  'border-style': (
+    responsive: true,
+    class: border,
+    values: (
+      'solid': solid,
+      'none': none,
+    ),
+  ),
+  'border-radius': (
+    responsive: false,
+    class: border-radius,
+    values: (
+      'none': 0,
+      'circle': 50%,
+      '4': 4px,
+      '5': 5px,
+      '6': 6px,
+      '8': 8px,
+      '12': 12px,
+      '16': 16px,
+      '62': 62px,
+      '136': 136px,
+    ),
+  ),
+  'border-color': (
+    responsive: true,
+    class: border,
+    values: (
+      'transparent': transparent,
+    ),
+  ),
+  'box-shadow': (
+    responsive: false,
+    class: shadow,
+    values: (
+      'header': unquote('0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 3px 3px -2px rgb(0 0 0 / 12%), 0px 1px 8px 0px rgb(0 0 0 / 20%)'),
+      'drawer': unquote('0 0 15px 0 rgb(34 41 47 / 5%)'),
+      'light': 0 0 4px rgba(107, 107, 107, 0.1),
+    ),
+  ),
+  'color': (
+    responsive: false,
+    class: text,
+    states: (
+      'hover',
+    ),
+    values: (
+      'inherit': inherit,
+      'purple': var(--color-purple),
+      'light-yellow': var(--color-light-yellow),
+      'light-blue': var(--color-light-blue),
+      'light-green': var(--color-light-green),
+      'red': var(--color-red),
+      'green': var(--color-green),
+      'blue': var(--color-blue),
+      'yellow': var(--color-yellow),
+      'grey': var(--color-grey),
+      'theme-text-primary': var(--theme-text-primary),
+      'theme-text-secondary': var(--theme-text-secondary),
+      'theme-surface': var(--theme-surface),
+      'theme-background': var(--theme-background),
+      'transparent': transparent,
+    ),
+  ),
+  'display': (
+    responsive: true,
+    class: d,
+    values: (
+      'none': none,
+      'inline-block': inline-block,
+      'block': block,
+      'flex': flex,
+      'inline-flex': inline-flex,
+    ),
+  ),
+  'flex': (
+    responsive: false,
+    class: flex,
+    values: (
+      '1': 1 1 100%,
+      '0': 0 0 auto,
+    ),
+  ),
+  'flex-direction': (
+    responsive: true,
+    class: flex,
+    values: (
+      'row': row,
+      'row-reverse': row-reverse,
+      'col': column,
+      'col-reverse': column-reverse,
+    ),
+  ),
+  'flex-grow': (
+    responsive: false,
+    class: flex,
+    values: (
+      'grow': 1,
+      'grow-0': 0,
+    ),
+  ),
+  'flex-shrink': (
+    responsive: false,
+    class: flex,
+    values: (
+      'shrink': 1,
+      'shrink-0': 0,
+    ),
+  ),
+  'flex-wrap': (
+    responsive: true,
+    class: flex,
+    values: (
+      'wrap': wrap,
+      'wrap-reverse': wrap-reverse,
+      'nowrap': nowrap,
+    ),
+  ),
+  'order': (
+    responsive: true,
+    class: order,
+    values: (
+      'none': 0,
+      '1': 1,
+      '2': 2,
+    ),
+  ),
+  'font-size': (
+    responsive: true,
+    class: font,
+    values: (
+      '80': 80px,
+      '52': 52px,
+      '48': 48px,
+      '40': 40px,
+      '32': 32px,
+      '30': 30px,
+      '28': 28px,
+      '26': 26px,
+      '24': 24px,
+      '22': 22px,
+      '20': 20px,
+      '18': 18px,
+      '16': 16px,
+      '14': 14px,
+      '12': 12px,
+      '10': 10px,
+    ),
+  ),
+  'font-family': (
+    responsive: false,
+    class: font,
+    values: (
+      'family-body': var(--base-body-font),
+      'family-heading': var(--base-heading-font),
+    ),
+  ),
+  'font-weight': (
+    responsive: false,
+    class: font,
+    values: (
+      '400': 400,
+      '500': 500,
+      '600': 600,
+      '700': 700,
+    ),
+  ),
+  'justify-content': (
+    responsive: true,
+    class: justify-content,
+    values: (
+      'start': flex-start,
+      'end': flex-end,
+      'center': center,
+      'between': space-between,
+      'around': space-around,
+    ),
+  ),
+  'left': (
+    responsive: false,
+    class: left,
+    values: (
+      '0': 0,
+    ),
+  ),
+  'line-height': (
+    responsive: true,
+    class: line-height,
+    values: (
+      '1': 1.25,
+      '12': 12px,
+      '16': 16px,
+      '20': 20px,
+      '22': 22px,
+      '24': 24px,
+      '28': 28px,
+      '32': 32px,
+      '36': 36px,
+      'normal': normal,
+    ),
+  ),
+  'line-style': (
+    responsive: false,
+    class: list,
+    values: (
+      'none': none,
+    ),
+  ),
+  'overflow': (
+    responsive: false,
+    class: overflow,
+    values: (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll,
+    ),
+  ),
+  'overflow-x': (
+    responsive: false,
+    class: overflow-x,
+    values: (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll,
+    ),
+  ),
+  'overflow-y': (
+    responsive: false,
+    class: overflow-y,
+    values: (
+      'auto': auto,
+      'hidden': hidden,
+      'visible': visible,
+      'scroll': scroll,
+    ),
+  ),
+  'padding': (
+    responsive: true,
+    class: p,
+    values: $padding-map,
+  ),
+  'padding-top': (
+    responsive: true,
+    class: pt,
+    values: $padding-map,
+  ),
+  'padding-left': (
+    responsive: true,
+    class: pl,
+    values: $padding-map,
+  ),
+  'padding-bottom': (
+    responsive: true,
+    class: pb,
+    values: $padding-map,
+  ),
+  'padding-right': (
+    responsive: true,
+    class: pr,
+    values: $padding-map,
+  ),
+  'position': (
+    responsive: true,
+    class: position,
+    values: (
+      'fixed': fixed,
+      'absolute': absolute,
+      'relative': relative,
+    ),
+  ),
+  'right': (
+    responsive: false,
+    class: right,
+    values: (
+      '0': 0,
+    ),
+  ),
+  'opacity': (
+    responsive: false,
+    class: opacity,
+    values: (
+      '0': 0,
+      '50': 0.5,
+      '60': 0.6,
+      '8': 0.08,
+      '70': 0.7,
+      '1': 1,
+    ),
+  ),
+  'text-align': (
+    responsive: true,
+    class: text,
+    values: (
+      'left': left,
+      'center': center,
+      'right': right,
+      'justify': justify,
+    ),
+  ),
+  'text-overflow': (
+    responsive: false,
+    class: text,
+    values: (
+      'clip': clip,
+      'ellipsis': ellipsis,
+      'fade': fade,
+    ),
+  ),
+  'text-transform': (
+    responsive: false,
+    class: text,
+    values: (
+      'uppercase': uppercase,
+    ),
+  ),
+  'transition': (
+    responsive: false,
+    class: transition,
+    values: (
+      'all': all 300ms ease,
+    ),
+  ),
+  'transition-duration': (
+    responsive: false,
+    class: duration,
+    values: (
+      '300': 300ms,
+      '500': 500ms,
+    ),
+  ),
+  'transition-timing-function': (
+    responsive: false,
+    class: timing,
+    values: (
+      'ease-in-out': ease-in-out,
+    ),
+  ),
+  'margin': (
+    responsive: true,
+    class: m,
+    values: $margin-map,
+  ),
+  'margin-top': (
+    responsive: true,
+    class: mt,
+    values: $margin-map,
+  ),
+  'margin-left': (
+    responsive: true,
+    class: ml,
+    values: $margin-map,
+  ),
+  'margin-bottom': (
+    responsive: true,
+    class: mb,
+    values: $margin-map,
+  ),
+  'margin-right': (
+    responsive: true,
+    class: mr,
+    values: $margin-map,
+  ),
+  'max-width': (
+    responsive: false,
+    class: max-w,
+    values: (
+      none: none,
+      100: 100%,
+    ),
+  ),
+  'width': (
+    responsive: true,
+    class: w,
+    values: (
+      'auto': auto,
+      'full': 100%,
+      'screen': 100vw,
+      'max-content': max-content,
+      '0': 0,
+      '24': 24px,
+      '32': 32px,
+      '40': 40px,
+    ),
+  ),
+  'white-space': (
+    responsive: true,
+    class: text,
+    values: (
+      'nowrap': nowrap,
+    ),
+  ),
+  'height': (
+    responsive: true,
+    class: h,
+    values: (
+      'auto': auto,
+      'full': 100%,
+      'screen': 100vh,
+      '20': 20px,
+      '24': 24px,
+      '26': 26px,
+      '32': 32px,
+      '36': 36px,
+      '40': 40px,
+      '44': 44px,
+      '48': 48px,
+      '54': 54px,
+      '56': 56px,
+      '60': 60px,
+      '72': 72px,
+      '75': 75px,
+      '64': 64px,
+      '96': 96px,
+      '110': 110px,
+    ),
+  ),
+  'top': (
+    responsive: false,
+    class: top,
+    values: (
+      '0': 0,
+    ),
+  ),
+  'bottom': (
+    responsive: false,
+    class: bottom,
+    values: (
+      '0': 0,
+    ),
+  ),
+  'pointer-events': (
+    responsive: false,
+    class: pointer,
+    values: (
+      'none': none,
+      'auto': auto,
+    ),
+  ),
+  'z-index': (
+    responsive: false,
+    class: z-index,
+    values: (
+      '1': 1,
+      '9': 9,
+      '10': 10,
+    ),
+  ),
+);

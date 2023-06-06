@@ -1,0 +1,62 @@
+// ==========  Text fields   ========== //
+// eslint-disable
+.text-field {
+  outline: none;
+  will-change: opacity, transform;
+  -webkit-tap-highlight-color: transparent;
+  overflow: visible;
+  background-color: transparent;
+
+  --floating-label-color: var(--theme-text-secondary);
+
+  &__input {
+    z-index: 1;
+    background: transparent;
+    text-decoration: inherit;
+    text-transform: inherit;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:required ~ .floating-label::after,
+    &:required ~ .notched .floating-label::after {
+      margin-left: 1px;
+      content: '*';
+    }
+  }
+
+  &:hover {
+    border-color: var(--theme-text-primary);
+  }
+
+  /* Modifier */
+
+  &--focused {
+    border-color: var(--theme-text-primary);
+
+    .text-field__input:required ~ .floating-label::after,
+    .text-field__input:required ~ .notched .floating-label::after {
+      color: #d50000;
+    }
+
+    &::after,
+    &::before {
+      opacity: 0.06;
+    }
+  }
+
+  &--invalid {
+    --notched-border-color: RGB(var(--color-danger));
+    --floating-label-color: RGB(var(--color-danger));
+    --line-ripple-background: RGB(var(--color-danger));
+  }
+
+  &--disabled {
+    .floating-label {
+      color: var(--theme-disable);
+    }
+  }
+}

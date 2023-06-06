@@ -1,0 +1,104 @@
+// ==========  Text fields   ========== //
+
+.text-field {
+  -webkit-tap-highlight-color: transparent;
+
+  --floating-label-color: var(--md-sys-color-on-surface-variant);
+
+  &__input {
+    z-index: 1;
+
+    &::placeholder {
+      transition: all 0.15s ease;
+      font-weight: inherit;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    &:required ~ .floating-label::after,
+    &:required ~ .notched-outline .floating-label::after {
+      margin-left: 1px;
+      content: '*';
+    }
+  }
+
+  &__icon {
+    &:not([tabindex]),
+    &:not([tabindex='-1']) {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  /* Pseudo state */
+  &:not(.text-field--focused):hover {
+    --notched-border-color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .floating-label {
+    left: 16px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  /* Modifier */
+  &--with-leading-icon {
+    .floating-label {
+      left: 52px;
+    }
+  }
+
+  &--outlined {
+    &:not(.text-field--focused):not(.text-field--disabled-float-above) {
+      .text-field__input::placeholder {
+        color: transparent;
+      }
+    }
+    &.text-field--with-leading-icon {
+      .floating-label {
+        left: 40px;
+      }
+    }
+  }
+
+  &--focused {
+    --notched-border-color: var(--md-sys-color-primary);
+    --notched-border-width: 2px;
+    --floating-label-color: var(--md-sys-color-primary);
+    --line-ripple-background: var(--md-sys-color-primary);
+
+    .text-field__input:required ~ .floating-label::after,
+    .text-field__input:required ~ .notched .floating-label::after {
+      color: #d50000;
+    }
+
+    &::after {
+      opacity: 0.06;
+    }
+  }
+
+  &--invalid {
+    --notched-border-color: var(--md-sys-color-error) !important;
+    --floating-label-color: var(--md-sys-color-error);
+    --line-ripple-background: var(--md-sys-color-error);
+  }
+
+  &--textarea {
+    height: auto;
+
+    .text-field__input {
+      align-self: auto;
+      height: auto;
+      margin: 8px 1px 1px 0;
+      padding: 0 16px 16px;
+      border: none;
+    }
+  }
+
+  &--disabled {
+    .floating-label {
+      color: var(--md-sys-color-disabled);
+    }
+  }
+}

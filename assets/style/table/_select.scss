@@ -1,0 +1,113 @@
+// ==========  Select  ========== //
+
+.select {
+  -webkit-tap-highlight-color: transparent;
+
+  &__native-control,
+  &__selected-text {
+    z-index: 1;
+
+    &::placeholder {
+      transition: all 0.15s ease;
+      font-weight: inherit;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    &:required ~ .floating-label::after,
+    &:required ~ .notched-outline .floating-label::after {
+      margin-left: 1px;
+      content: '*';
+    }
+  }
+
+  &__icon {
+    &:not([tabindex]),
+    &:not([tabindex='-1']) {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  &.select--with-leading-icon {
+    .floating-label {
+      left: 40px;
+    }
+  }
+
+  /* Pseudo state */
+  &:not(.select--focused):hover {
+    --notched-border-color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .floating-label {
+    left: 16px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  /* Modifier */
+
+  &--with-trailing-icon {
+    .select__native-control {
+      padding-right: 48px;
+    }
+
+    .trailing-icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: auto;
+      transform: translate(0%, -50%);
+    }
+  }
+
+  &--with-leading-icon {
+    .floating-label {
+      left: 52px;
+    }
+  }
+
+  &--outlined {
+    &:not(.select--focused):not(.select--disabled-float-above) {
+      .select__input::placeholder {
+        color: transparent;
+      }
+    }
+    &.select--with-leading-icon {
+      .floating-label {
+        left: 40px;
+      }
+    }
+  }
+
+  &--focused {
+    --notched-border-color: var(--md-sys-color-primary);
+    --notched-border-width: 2px;
+    --floating-label-color: var(--md-sys-color-primary);
+    --line-ripple-background: var(--md-sys-color-primary);
+
+    .select__input:required ~ .floating-label::after,
+    .select__input:required ~ .notched .floating-label::after {
+      color: #d50000;
+    }
+
+    &::after,
+    &::before {
+      opacity: 0.06;
+    }
+  }
+
+  &--invalid {
+    --notched-border-color: var(--md-sys-color-error) !important;
+    --floating-label-color: var(--md-sys-color-error);
+    --line-ripple-background: var(--md-sys-color-error);
+  }
+
+  &--disabled {
+    .floating-label {
+      color: var(--md-sys-color-disabled);
+    }
+  }
+}

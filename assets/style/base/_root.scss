@@ -1,0 +1,34 @@
+// ==========  Root  ========== //
+
+:root {
+  // Link color
+  --link-color: rgb(var(--color-accent));
+  --link-decoration: none;
+
+  // Gutter
+  --grid-gutter: #{$gutter-default};
+  --grid-gutter-negative: #{get-negative($gutter-default)};
+  --container-box-width: 1200px;
+
+  // base
+  @each $key in map-keys($base) {
+    $map: map-get($base, $key);
+
+    @if $map {
+      $values: map-get($map, "values");
+
+      @include map-variables($values, $key);
+    }
+  }
+
+  // components
+  @each $key in map-keys($components) {
+    $map: map-get($components, $key);
+
+    @if $map {
+      $values: map-get($map, "values");
+
+      @include map-variables($values, $key);
+    }
+  }
+}

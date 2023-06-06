@@ -1,0 +1,114 @@
+// ==========  Button   ========== //
+
+.button {
+  min-width: 64px;
+  background: transparent;
+  color: var(--md-sys-color-on-background);
+  border-color: var(--md-sys-color-on-background);
+  box-shadow: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: calc(50% - 100%);
+    left: calc(50% - 100%);
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    content: ' ';
+    background-color: var(--md-sys-color-on-background);
+    border-radius: 50%;
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: opacity;
+    will-change: opacity;
+  }
+
+  &::before {
+    border-radius: 4px;
+    transition-duration: 300ms;
+    transition-property: opacity;
+    transform: none;
+    will-change: opacity;
+  }
+
+  &::after {
+    transition-timing-function: linear;
+    transition-duration: 300ms;
+  }
+
+  &--active::before,
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    opacity: 0.06;
+  }
+
+  &:active::after {
+    opacity: 0.06;
+  }
+
+  &--raised:not(:disabled) {
+    box-shadow: var(--elevation-z2);
+    color: var(--md-sys-color-on-background);
+    background-color: var(--md-sys-color-background);
+
+    &::before,
+    &::after {
+      background-color: var(--md-sys-color-background);
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: var(--elevation-z4);
+    }
+
+    &:active {
+      box-shadow: var(--elevation-z4);
+    }
+  }
+
+  &--unelevated:not(:disabled) {
+    box-shadow: var(--elevation-z0);
+
+    &:active,
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+
+  &--outlined:not(:disabled) {
+    border-style: solid;
+  }
+
+  // button variants
+  $component: map-get($components, 'button');
+
+  @if $component {
+    $variants: map-get($component, 'variants');
+
+    @each $variant in $variants {
+      &--#{$variant} {
+        @include button-variant($variant);
+      }
+    }
+  }
+
+  &[disabled],
+  &--loading {
+    color: var(--md-sys-color-on-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+  }
+
+  &[disabled].button--raised,
+  &--loading.button--raised {
+    color: var(--md-sys-color-on-disabled);
+    background-color: var(--md-sys-color-disabled);
+  }
+}
